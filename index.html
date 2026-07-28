@@ -253,33 +253,41 @@
   .lj-caption{font-size:12px;color:var(--slate);font-style:italic;margin-top:10px;text-align:right;}
 
   /* ===== AGENDA TABLE ===== */
-  .agenda-block{margin-bottom:44px;}
+  .agenda-block{margin-bottom:34px;border-radius:8px;overflow:hidden;box-shadow:0 18px 40px rgba(0,10,40,0.10);}
   .agenda-header{
-    display:flex;align-items:center;gap:18px;background:var(--navy);color:var(--white);
-    padding:20px 26px;border-radius:8px 8px 0 0;
+    display:flex;align-items:center;gap:16px;background:var(--navy);color:var(--white);
+    padding:16px 22px;border-radius:8px 8px 0 0;border:1px solid rgba(255,255,255,0.08);
   }
   .agenda-day-badge{
-    width:56px;height:56px;border-radius:50%;background:var(--blue);color:var(--white);
+    width:50px;height:50px;border-radius:50%;background:var(--blue);color:var(--white);
     display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;
     font-weight:800;font-size:11px;line-height:1.15;text-align:center;
   }
   .agenda-day-badge span{font-size:16px;}
-  .agenda-header h4{color:var(--white);font-size:19px;margin-bottom:4px;}
-  .agenda-header p{color:#9FB0CE;font-size:14px;font-style:italic;}
-  .agenda-table{width:100%;border-collapse:collapse;border:1px solid var(--line);border-top:none;}
+  .agenda-header h4{color:var(--white);font-size:18px;margin-bottom:3px;}
+  .agenda-header p{color:#C9D4E6;font-size:13px;font-style:italic;}
+  .agenda-table{width:100%;border-collapse:collapse;table-layout:fixed;border:1px solid #E4EAF3;border-top:none;background:#F8FAFE;}
   .agenda-table th{
-    background:var(--grey-mid);color:var(--navy);text-align:left;font-size:13px;
-    letter-spacing:0.5px;text-transform:uppercase;padding:12px 16px;border-bottom:1px solid var(--line);
+    background:#244F82;color:var(--white);text-align:center;font-size:13px;font-weight:800;
+    letter-spacing:0.2px;text-transform:uppercase;padding:11px 12px;border:1px solid rgba(255,255,255,0.46);
   }
+  .agenda-table th:nth-child(1){width:14%;}
+  .agenda-table th:nth-child(2){width:16%;}
+  .agenda-table th:nth-child(3){width:44%;}
+  .agenda-table th:nth-child(4){width:26%;}
   .agenda-table td{
-    padding:13px 16px;font-size:14.5px;color:var(--ink);border-bottom:1px solid var(--line);vertical-align:top;
+    padding:9px 12px;font-size:14px;line-height:1.32;color:var(--ink);border:1px solid rgba(255,255,255,0.78);vertical-align:middle;background:#E8EEF7;
   }
   .agenda-table tr:last-child td{border-bottom:none;}
-  .agenda-table tr:nth-child(even) td{background:var(--grey);}
-  .agenda-table .t-time{color:var(--slate);white-space:nowrap;font-weight:600;}
+  .agenda-table tr:nth-child(even) td{background:#D5DFEF;}
+  .agenda-table tr.agenda-soft td{background:#CED8E9;color:#384252;font-style:italic;}
+  .agenda-table tr.agenda-soft .t-session{color:#384252;font-style:italic;font-weight:600;}
+  .agenda-table .t-time{color:#172033;white-space:nowrap;font-weight:600;}
+  .agenda-table tr.agenda-soft .t-time{color:#384252;font-style:italic;font-weight:500;}
   .agenda-table .t-session{color:var(--blue);font-weight:700;white-space:nowrap;}
   .agenda-table .t-speaker{color:var(--navy);font-weight:600;white-space:nowrap;}
   @media(max-width:700px){
+    .agenda-block{border-radius:0;box-shadow:none;}
     .agenda-table{display:block;overflow-x:auto;white-space:nowrap;}
   }
 
@@ -298,13 +306,13 @@
 
   /* ===== INSTRUCTORS ===== */
   #instructors .section-title{font-size:42px;line-height:1.08;color:#181B20;margin-bottom:36px;}
-  .instructor-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
+  .instructor-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
   .instructor-card{
-    display:flex;gap:28px;background:var(--white);border:1px solid var(--line);border-radius:12px;
-    padding:32px;box-shadow:0 14px 34px rgba(0,10,40,0.08);
+    display:flex;gap:22px;background:var(--white);border:1px solid var(--line);border-radius:8px;
+    padding:24px;box-shadow:0 16px 34px rgba(0,10,40,0.08);
   }
   .instructor-photo{
-    width:140px;height:140px;border-radius:10px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);
+    width:132px;height:132px;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);
   }
   .instructor-eyebrow{font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);margin-bottom:6px;}
   .instructor-name{font-size:21px;font-weight:800;color:var(--navy);margin-bottom:14px;line-height:1.22;}
@@ -534,19 +542,19 @@
         <table class="agenda-table">
           <thead><tr><th>Time</th><th>Session</th><th>Topic</th><th>Speaker</th></tr></thead>
           <tbody>
-            <tr><td class="t-time">11:00 – 11:30</td><td class="t-session">Registration</td><td>Arrival, registration &amp; morning coffee</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">11:00 – 11:30</td><td class="t-session">Registration</td><td>Arrival, registration &amp; morning coffee</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">11:30 – 12:15</td><td class="t-session">–</td><td>Cyber in an Interconnected Threat Landscape</td><td class="t-speaker">Professor Washington Yotto Ochieng</td></tr>
             <tr><td class="t-time">12:15 – 13:00</td><td class="t-session">–</td><td>Why Cyber and Operational Resilience Matter to the Board</td><td class="t-speaker">Devesh Mehta</td></tr>
-            <tr><td class="t-time">13:00 – 14:00</td><td class="t-session">Lunch</td><td>Networking lunch</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">13:00 – 14:00</td><td class="t-session">Lunch</td><td>Networking lunch</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">14:00 – 14:45</td><td class="t-session">–</td><td>Innovation in the Cyber Security of Cyber-Physical Systems</td><td class="t-speaker">Dr Soteris Demetriou</td></tr>
             <tr><td class="t-time">14:45 – 15:30</td><td class="t-session">–</td><td>Emerging Threats and the Changing Landscape</td><td class="t-speaker">Dr Sen Wang &amp; Professor Mireille Elhajj</td></tr>
-            <tr><td class="t-time">15:30 – 15:45</td><td class="t-session">Break</td><td>Refreshments</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">15:30 – 15:45</td><td class="t-session">Break</td><td>Refreshments</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">15:45 – 16:30</td><td class="t-session">–</td><td>Operational Resilience and Third-Party Risk</td><td class="t-speaker">Professor Caroline Field</td></tr>
             <tr><td class="t-time">16:30 – 17:00</td><td class="t-session">–</td><td>Governance, Regulation and Board Accountability</td><td class="t-speaker">Guest Speaker</td></tr>
-            <tr><td class="t-time">17:00 – 17:15</td><td class="t-session">Break</td><td>Short break</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">17:00 – 17:15</td><td class="t-session">Break</td><td>Short break</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">17:15 – 18:00</td><td class="t-session">Keynote</td><td>Board Leadership Through International Crises</td><td class="t-speaker">Lord George Robertson</td></tr>
-            <tr><td class="t-time">18:00 – 18:30</td><td class="t-session">Wrap-up</td><td>Recap, transition to dinner</td><td class="t-speaker">–</td></tr>
-            <tr><td class="t-time">18:30 onward</td><td class="t-session">Dinner</td><td>With industry peers and faculty</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">18:00 – 18:30</td><td class="t-session">Day 1 Wrap-up</td><td>Recap, transition to dinner</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">18:30 onward</td><td class="t-session">Dinner</td><td>With industry peers and faculty</td><td class="t-speaker">–</td></tr>
           </tbody>
         </table>
       </div>
@@ -562,18 +570,18 @@
         <table class="agenda-table">
           <thead><tr><th>Time</th><th>Session</th><th>Topic</th><th>Speaker</th></tr></thead>
           <tbody>
-            <tr><td class="t-time">9:00 – 9:15</td><td class="t-session">Welcome Back</td><td>Recap</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">9:00 – 9:15</td><td class="t-session">Welcome Back &amp; Recap</td><td>–</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">9:15 – 10:00</td><td class="t-session">–</td><td>Leading Through Crisis: Culture and Lessons from Major Ransomware Incidents</td><td class="t-speaker">Guest Speaker</td></tr>
             <tr><td class="t-time">10:00 – 10:45</td><td class="t-session">–</td><td>Cyber Risk Appetite, Funding and Strategic Investment</td><td class="t-speaker">Dr Soteris Demetriou</td></tr>
-            <tr><td class="t-time">10:45 – 11:15</td><td class="t-session">Break</td><td>Refreshments</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">10:45 – 11:15</td><td class="t-session">Break</td><td>Refreshments</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">11:15 – 12:00</td><td class="t-session">–</td><td>Regulatory Expectations</td><td class="t-speaker">Professor Manu Sharma</td></tr>
-            <tr><td class="t-time">12:00 – 12:45</td><td class="t-session">Lunch</td><td>Networking lunch</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">12:00 – 12:45</td><td class="t-session">Lunch</td><td>Networking lunch</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">12:45 – 14:00</td><td class="t-session">Simulation</td><td>Board Crisis Simulation: Strategic Communications and Stakeholder Management</td><td class="t-speaker">Professor Deeph Chana</td></tr>
-            <tr><td class="t-time">14:00 – 14:30</td><td class="t-session">Break</td><td>Tea / coffee</td><td class="t-speaker">–</td></tr>
-            <tr><td class="t-time">14:30 – 15:15</td><td class="t-session">–</td><td>Resilience in Leadership</td><td class="t-speaker">Abhishek Jain</td></tr>
-            <tr><td class="t-time">15:15 – 15:30</td><td class="t-session">Break</td><td>Short break</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">14:00 – 14:30</td><td class="t-session">Break</td><td>Tea / coffee</td><td class="t-speaker">–</td></tr>
+            <tr><td class="t-time">14:30 – 15:15</td><td class="t-session">–</td><td>Resilience in Leadership</td><td class="t-speaker">Guest Speaker</td></tr>
+            <tr class="agenda-soft"><td class="t-time">15:15 – 15:30</td><td class="t-session">Break</td><td>Short break</td><td class="t-speaker">–</td></tr>
             <tr><td class="t-time">15:30 – 16:15</td><td class="t-session">Keynote</td><td>Leading Through Disruption: Turning Board Insight into Resilient Action</td><td class="t-speaker">Natasha Grant &amp; George Bowman</td></tr>
-            <tr><td class="t-time">16:15 – 16:30</td><td class="t-session">Wrap-up</td><td>Key takeaways, closing remarks</td><td class="t-speaker">–</td></tr>
+            <tr class="agenda-soft"><td class="t-time">16:15 – 16:30</td><td class="t-session">Programme Wrap-up</td><td>Key takeaways, closing remarks</td><td class="t-speaker">–</td></tr>
           </tbody>
         </table>
       </div>
@@ -622,7 +630,7 @@
             <li>Head of Civil &amp; Environmental Engineering, Imperial College London</li>
             <li>President of the Royal Institute of Navigation (2024–Present)</li>
             <li>Interim Director, Imperial College London</li>
-            <li>CBE Recipient (2024)</li>
+            <li>Head of Centre for Active Resilience and Security</li>
           </ul>
         </div>
       </div>
@@ -658,6 +666,31 @@
             <li>Deputy Director, UK Cabinet Office (COBR)</li>
             <li>Leads National Crisis Response (COBR)</li>
             <li>Former Head of Policy Unit, Home Office</li>
+          </ul>
+        </div>
+      </div>
+    <div class="instructor-card">
+        <img class="instructor-photo" src="Manu Sharma.jpeg" alt="manu-sharma">
+        <div>
+          <div class="instructor-name">Manu Sharma</div>
+          <ul>
+            <li>Partner, Grant Thornton UK </li>
+            <li>Visiting Professor, Imperial College London</li>
+            <li>Skilled person in Bank of England Regulations.</li>
+            <li>Part of TheCityUK consultation board on Operational
+     resilience for Financial services</li>
+          </ul>
+        </div>
+      </div>
+    <div class="instructor-card">
+      <img class="instructor-photo" src="Prof. Deeph Chana.jpg" alt="professor-deeph-chana">  
+      <div>
+          <div class="instructor-name">Professor Deeph Chana</div>
+          <ul>
+            <li>Professor of Practice at Imperial College London.</li>
+            <li>Former founding Managing Director of NATO DIANA.</li>
+            <li>Ex-Whitehall official advising on counter-terrorism.</li>
+            <li>PhD in Physics from King's College London.</li>
           </ul>
         </div>
       </div>
